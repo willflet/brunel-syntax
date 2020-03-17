@@ -1,0 +1,482 @@
+/* Language-agnostic syntax highlighting */
+
+// Comments ====================================================================
+.syntax--comment {
+    color: @monochrome-low;
+    font-style: italic;
+
+    // Inline comments ---------------------------------------------------------
+    &.syntax--line {
+
+        // //
+        &.syntax--double-slash  {}
+
+        // --
+        &.syntax--double-dash  {}
+
+        // #
+        &.syntax--number-sign  {}
+
+        // %
+        &.syntax--percentage  {}
+    }
+
+    // Block comments ----------------------------------------------------------
+    &.syntax-block {
+
+        // Documentation
+        &.syntax--documentation {
+            color: @lightyellow;
+        }
+    }
+
+    // Special markup inside comments ------------------------------------------
+    .syntax--markup{
+
+        // Link
+        &.syntax--link {
+            color: @deepteal;
+        }
+    }
+}
+
+// Constants ===================================================================
+.syntax--constant {
+    color: @monochrome-mid;
+
+    // Variables that are constants
+    &.syntax--variable {}
+
+    // Constants that represent characters -------------------------------------
+    &.syntax--character {
+        color: @green;
+
+        // Escape sequences
+        &.syntax--escape {}
+    }
+
+    // Language-defined constants e.g. true
+    &.syntax--language {
+        font-weight: bold;
+    }
+
+    // Numeric literals
+    &.syntax--numeric {
+        color: @lightblue;
+    }
+
+    // Other recognizable constants --------------------------------------------
+    &.syntax--other {
+
+        // Colors
+        &.syntax--color {
+            color: inherit;
+            font-weight: bold;
+        }
+
+        // Symbols
+        &.syntax--symbol {}
+    }
+}
+
+// Named entities ==============================================================
+.syntax--entity {
+
+    // In declarations ---------------------------------------------------------
+    &.syntax--name {
+
+        // Functions
+        &.syntax--function {
+            color: @blue;
+        }
+
+        // Types
+        &.syntax--type {
+            color: @indigo;
+            font-weight: bold;
+
+            // Class
+            &.syntax--class {}
+        }
+
+        // Tags
+        &.syntax--tag {
+            color: @red;
+        }
+
+        // Sections
+        &.syntax--section {
+            color: @blue;
+        }
+    }
+
+    // Other entities ----------------------------------------------------------
+    &.syntax--other {
+
+        // Inherited classes
+        &.syntax--inherited-class {
+            color: @lightindigo;
+            font-weight: bold;
+        }
+
+        // Attribute names
+        &.syntax--attribute-name {
+            color: @lightyellow;
+
+            // Id attribute
+            &.syntax--id {
+                color: @blue;
+            }
+        }
+    }
+}
+
+
+// Invalid =====================================================================
+.syntax--invalid {
+
+    // Deprecated
+    &.syntax--deprecated {
+        color: @deepbrown !important;
+        background-color: @lightyellow !important;
+    }
+
+    // Illegal
+    &.syntax--illegal {
+        color: white !important;
+        background-color: @darkred !important;
+    }
+}
+
+// Keywords ====================================================================
+.syntax--keyword {
+    color: @monochrome-mid;
+
+    // Control Flow
+    &.syntax--control {
+        color: @pink;
+    }
+
+    // Operators
+    &.syntax--operator {
+        color: @monochrome-mid;
+    }
+
+    // Other
+    &.syntax--other {
+
+        // Special method
+        &.syntax--special-method {
+            color: @blue;
+        }
+
+        // Unit of measure
+        &.syntax--unit {
+            color: @lightblue;
+            font-style: italic;
+        }
+    }
+}
+
+// Markup ======================================================================
+.syntax--markup {
+
+    // Underline
+    &.syntax--underline{
+        &.syntax--link {}
+    }
+
+    // Bold
+    &.syntax--bold {
+        color: @lightorange;
+        font-weight: bold;
+    }
+
+    // Headings
+    &.syntax--heading {
+        color: @red;
+
+        // Heading 1
+        &.syntax--1 {}
+
+        // Punctuation that defines headings
+        .syntax--punctuation.syntax--definition.syntax--heading {
+            color: @darkblue;
+        }
+    }
+
+    // Italic
+    &.syntax--italic {
+        color: @lightpurple;
+        font-style: italic;
+    }
+
+    // List
+    &.syntax--list{
+
+        // Numbered list
+        &.syntax--numbered {}
+
+        // Bullet list
+        &.syntax--unnumbered {}
+    }
+
+    // Quote
+    &.syntax--quote {
+        color: @lightblue;
+    }
+
+    // Verbatim
+    &.syntax--raw {
+        color: @lightgreen;
+    }
+
+    // Other
+    &.syntax--other {}
+
+    // Links
+    &.syntax--link {
+        color: @teal;
+    }
+
+    // New content
+    &.syntax--inserted {
+        background-color: @deepgreen;
+    }
+
+    // Changed content
+    &.syntax--changed {
+        background-color: @deepblue;
+    }
+
+    // Deleted content
+    &.syntax--deleted {
+        background-color: @deepred;
+    }
+}
+
+// Meta (grouped syntax elements) ==============================================
+.syntax--meta {
+
+    // Class
+    &.syntax--class {
+        color: @lightyellow;
+
+        // Class content defaults
+        &.syntax--body {
+            color: @monochrome-high;
+        }
+    }
+
+    // Function content defaults
+    &.syntax--function-call,
+    &.syntax--function, {}
+
+    // Method content defaults
+    &.syntax--method-call,
+    &.syntax--method {}
+
+    // Definitions
+    &.syntax--definition {
+        &.syntax--variable {
+            color: @orange;
+        }
+    }
+
+    // Links
+    &.syntax--link {
+        color: @orange;
+    }
+
+    // Requirements
+    &.syntax--require {
+        color: @blue;
+    }
+
+    // Selector
+    &.syntax--selector {
+        color: @lightpurple;
+    }
+
+    // Separators
+    &.syntax--separator {}
+
+    // Tags
+    &.syntax--tag {}
+}
+
+// Storage (memory and access) =================================================
+.syntax--storage {
+    color: @lightyellow;
+
+    // Types
+    &.syntax--type {
+
+        // Type annotations
+        &.syntax--annotation {}
+
+        // Primitive types
+        &.syntax--primitive {}
+    }
+
+    // Scope modifiers
+    &.syntax--modifier {
+        color: @darkpink;
+
+        &.syntax--package,
+        &.syntax--import {}
+    }
+}
+
+// Strings
+.syntax--string {
+    color: @lightgreen;
+
+    // Embedded source code
+    > .syntax--source, .syntax--embedded {
+        color: @monochrome-high;
+    }
+
+    // Quoted strings
+    &.syntax--quoted {}
+
+    // Unquoted strings
+    &.syntax--unquoted {}
+
+    // Interpolated strings
+    &.syntax--interpolated {}
+
+    // Regular expressions
+    &.syntax--regexp {
+        color: @lightlime;
+
+        .syntax--source.syntax--ruby.syntax--embedded {
+            color: @yellow;
+        }
+    }
+
+    // Other
+    &.syntax--other {
+        &.syntax--link {
+            color: @lightred;
+        }
+    }
+}
+
+// Language-defined
+.syntax--support {
+
+    // Provided functions
+    &.syntax--function {
+        color: @lightteal;
+
+        &.syntax--any-method {
+            color: @lightteal;
+        }
+    }
+
+    // Provided classes
+    &.syntax--class {
+        color: @lightindigo;
+    }
+
+    // Provided types
+    &.syntax--type {
+        color: inherit;
+    }
+
+    // Provided constants
+    &.syntax--constant {
+        color: @monochrome-mid;
+    }
+
+    // Provided variables
+    &.syntax--variable {
+        color: @darkteal;
+    }
+
+    // Other provisions
+    &.syntax--other {}
+}
+
+// Variables
+.syntax--variable {
+    color: @orange;
+
+    // Parameters of functions etc.
+    &.syntax--parameter {}
+
+    // Reserved language-specific
+    &.syntax--language {}
+
+    // Other
+    &.syntax--other {}
+
+    // String substitution name
+    &.syntax--interpolation {
+        color: @darkred;
+    }
+}
+
+// Punctuation =================================================================
+.syntax--punctuation {
+
+    // Defining environments ---------------------------------------------------
+    &.syntax--definition {
+
+        // Comment delimiters
+        &.syntax--comment {}
+
+        // List-like delimiters and separators
+        &.syntax--method-parameters,
+        &.syntax--function-parameters,
+        &.syntax--parameters,
+        &.syntax--separator,
+        &.syntax--seperator,
+        &.syntax--array {
+            color: @lightyellow;
+        }
+
+        // Heading delimiters
+        &.syntax--heading,
+        &.syntax--identity {
+            color: @darkblue;
+        }
+
+        // Bold delimiters
+        &.syntax--bold {
+            color: @lightorange;
+            font-weight: bold;
+        }
+
+        // Italic delimiters
+        &.syntax--italic {
+            color: @lightpurple;
+            font-style: italic;
+        }
+    }
+
+    // Section delimiters
+    &.syntax--section {
+
+        // Embedded section
+        &.syntax--embedded {
+            color: @darkred;
+        }
+
+        // OOP
+        &.syntax--method,
+        &.syntax--class,
+        &.syntax--inner-class {}
+    }
+}
+
+// Underline
+.syntax--underline {
+    text-decoration: underline;
+}
+
+// None
+.syntax--none {
+    color: @monochrome-high;
+}

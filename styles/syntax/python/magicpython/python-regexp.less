@@ -1,0 +1,281 @@
+/* Python source code regular expression highlighting */
+
+// (When in python source code)
+.syntax--source.syntax--python {
+
+    // (In a regexp environment)
+    .syntax--regexp {
+
+        // Comments ================================================================
+        > .syntax--comment.syntax--regexp {}
+
+        // Constants ===============================================================
+        > .syntax--constant {
+
+            // Characters ----------------------------------------------------------
+            &.syntax--character {
+                color: @lightorange;
+
+                // Escaped characters in strings
+                &.syntax--escape.syntax--regexp {}
+
+                // [...] (characters in a set)
+                &.syntax--set.syntax--regexp {
+                    color: @lightyellow;
+                }
+
+                // \u0000-\uffff \U00000000-\UFFFFFFFF
+                &.syntax--unicode.syntax--regexp {}
+            }
+
+            // [...] (brackets)
+            &.syntax--other.syntax--set.syntax--regexp {
+                color: @red;
+            }
+        }
+
+        // Named entities ==========================================================
+        > .syntax--entity {
+            color: @lightlime;
+
+            // Names in declarations -----------------------------------------------
+            &.syntax--name.syntax--tag {
+
+                // \1
+                &.syntax--backreference.syntax--regexp {
+                    color: @lightblue;
+                    font-weight: bold;
+                }
+
+                // Named capturing groups
+                &.syntax--named {
+                    color: @blue;
+
+                    // ?P=...
+                    &.syntax--backreference.syntax--regexp {}
+
+                    // ?P<...>
+                    &.syntax--group.syntax--regexp {}
+                }
+            }
+        }
+
+        // Language keywords =======================================================
+        > .syntax--keyword {
+
+            // Operators -----------------------------------------------------------
+            &.syntax--operator {
+
+                // Conditional groups
+                &.syntax--conditional {
+
+                    // (?(...)
+                    &.syntax--regexp {
+                        color: @orange;
+                    }
+
+                    // ) after options
+                    &.syntax--negative.syntax--regexp {}
+                }
+
+                // |
+                &.syntax--disjunction.syntax--regexp {
+                    color: @orange;
+                    font-weight: bold;
+                }
+
+                // Lookahead groups
+                &.syntax--lookahead {
+                    color: @darkteal;
+
+                    // (?=
+                    &.syntax--regexp {}
+
+                    // (?!
+                    &.syntax--negative.syntax--regexp {}
+                }
+
+                // Lookbehind groups
+                &.syntax--lookbehind {
+                    color: @darkteal;
+
+                    // (?<=
+                    &.syntax--regexp {}
+
+                    // (?<!
+                    &.syntax--negative.syntax--regexp {}
+                }
+
+                // ^ in [^...]
+                &.syntax--negation.syntax--regexp {
+                    color: @red;
+                    font-weight: bold;
+                }
+
+                // + * ? +? *? ?? {2} {0,5}
+                &.syntax--quantifier.syntax--regexp {
+                    color: @brown;
+                }
+            }
+        }
+
+        // Context-aware syntax ====================================================
+        > .syntax--meta {
+
+            // Backreferences
+            &.syntax--backreference {
+
+                // \1
+                &.syntax--regexp {}
+
+                // (?P=...)
+                &.syntax--named.syntax--regexp {}
+            }
+
+            // [...]
+            &.syntax--character.syntax--set.syntax--regexp {}
+
+            // (?P<...>...)
+            &.syntax--named.syntax--regexp {}
+        }
+
+        // Punctuation =============================================================
+        > .syntax--punctuation {
+
+            // [...]
+            &.syntax--character.syntax--set {
+
+                // [
+                &.syntax--begin.syntax--regexp {}
+
+                // ]
+                &.syntax--end.syntax--regexp {}
+            }
+
+            // (?#...)
+            &.syntax--comment {
+
+                // (?#
+                &.syntax--begin.syntax--regexp {}
+
+                // )
+                &.syntax--end.syntax--regexp {}
+            }
+
+            // (...)
+            &.syntax--parenthesis {
+                color: @blue;
+
+                // (
+                &.syntax--begin.syntax--regexp {}
+
+                // )
+                &.syntax--end.syntax--regexp {}
+
+                // Parentheses in (?P=...)
+                &.syntax--backreference.syntax--named {
+                    color: @lightblue;
+                    font-weight: bold;
+
+                    // (
+                    &.syntax--begin.syntax--regexp {}
+
+                    // )
+                    &.syntax--end.syntax--regexp {}
+                }
+
+                // Outer parentheses in (?(...)...)
+                &.syntax--conditional {
+
+                    // (
+                    &.syntax--begin.syntax--regexp {}
+
+                    // )
+                    &.syntax--end.syntax--regexp {}
+                }
+
+                // Parentheses in (?=...) and (?!...)
+                &.syntax--lookahead {
+                    color: @darkteal;
+
+                    // (
+                    &.syntax--begin.syntax--regexp {}
+
+                    // )
+                    &.syntax--end.syntax--regexp {}
+                }
+
+                // Parentheses in (?<=...) and (?<!...)
+                &.syntax--lookbehind {
+                    color: @darkteal;
+
+                    // (
+                    &.syntax--begin.syntax--regexp {}
+
+                    // )
+                    &.syntax--end.syntax--regexp {}
+                }
+
+                // Parentheses in (?P<...>...)
+                &.syntax--named {
+                    color: @blue;
+
+                    // (
+                    &.syntax--begin.syntax--regexp {}
+
+                    // )
+                    &.syntax--end.syntax--regexp {}
+                }
+
+                // Parentheses in (?:...)
+                &.syntax--non-capturing {
+                    color: @monochrome-mid;
+
+                    // (
+                    &.syntax--begin.syntax--regexp {}
+
+                    // )
+                    &.syntax--end.syntax--regexp {}
+                }
+            }
+        }
+
+        // Parsing modifications (?_) where _ contains some of a i L m s u x
+        > .syntax--storage.syntax--modifier.syntax--flag.syntax--regexp {
+            // font-weight: bold;
+        }
+
+        // Language-defined names ==================================================
+        > .syntax--support {
+
+            // Other character sequences
+            &.syntax--other {
+
+                // \A \b \B \d \D \s \S \w \W \Z
+                &.syntax--escape.syntax--special.syntax--regexp {
+                    color: @lightred;
+                }
+
+                // Special matches
+                &.syntax--match {
+                    color: @lightteal;
+
+                    // .
+                    &.syntax--any.syntax--regexp {
+                        color: @lightred;
+                        font-weight: bold;
+                    }
+
+                    // ^
+                    &.syntax--begin.syntax--regexp {}
+
+                    // $
+                    &.syntax--end.syntax--regexp {}
+                }
+
+                // ()
+                &.syntax--parenthesis.syntax--regexp {}
+            }
+        }
+    }
+}

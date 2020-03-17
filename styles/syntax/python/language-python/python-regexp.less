@@ -1,0 +1,51 @@
+/* Python source code regular expression highlighting */
+
+// (When in regexp strings in python source code)
+.syntax--source.syntax--python {
+
+    // (In a regexp environment)
+    .syntax--regexp {
+
+        // Comments
+        > .syntax--comment {
+
+            // Block comments
+            &.syntax--block.syntax--regexp {}
+
+            // Inline comments (#)
+            &.syntax--line.syntax--number-sign.syntax--regexp {}
+        }
+
+        // Constants
+        > .syntax--constant {
+
+            // Characters
+            &.syntax--character{
+                color: @lightorange;
+
+                // Character classes (e.g. \w)
+                &.syntax--character-class.syntax--regexp {
+                    color: @lightred;
+                }
+
+                // Escaped sequences
+                &.syntax--escape.syntax--backslash.syntax--regexp {}
+            }
+
+            // Other constants
+            &.syntax--other {
+
+                // User defined character classes []
+                &.syntax--character-class {
+                    color: @red;
+
+                    // [a-z]
+                    &.syntax--range.syntax--regexp {}
+
+                    // [abc]
+                    &.syntax--set.syntax--regexp {}
+                }
+            }
+        }
+    }
+}

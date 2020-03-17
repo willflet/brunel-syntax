@@ -1,0 +1,24 @@
+.syntax--source.syntax--java {
+  .syntax--storage {
+    &.syntax--modifier.syntax--import {
+      color: @yellow;
+    }
+
+    &.syntax--type {
+      color: @yellow;
+    }
+  }
+  .syntax--keyword.syntax--operator.syntax--instanceof {
+    color: @lightpurple;
+  }
+}
+
+.syntax--source.syntax--java-properties {
+  .syntax--meta.syntax--key-pair {
+    color: @lightred;
+
+    & > .syntax--punctuation {
+      color: @monochrome-high;
+    }
+  }
+}

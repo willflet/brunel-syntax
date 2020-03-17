@@ -1,0 +1,86 @@
+/* Custom colour definitions */
+
+// Config -----------------------------------
+
+@primary-hue:           220;
+@monochrome-saturation: 12%;
+
+@high-brightness:       71%;
+@mid-brightness:        55%;
+@low-brightness:        42%;
+@dim-brightness:        26%;
+@bg-brightness:         18%;
+
+@primary-accent: hsl(@primary-hue, 100%, @high-brightness);
+
+
+// Monochrome -----------------------------------
+
+@monochrome-high: hsl(@primary-hue, @monochrome-saturation, @high-brightness); // default text
+@monochrome-mid:  hsl(@primary-hue, @monochrome-saturation, @mid-brightness);
+@monochrome-low:  hsl(@primary-hue, @monochrome-saturation, @low-brightness); // comments
+@monochrome-dim:  hsl(@primary-hue, @monochrome-saturation, @dim-brightness);
+@monochrome-bg:   hsl(@primary-hue, @monochrome-saturation, @bg-brightness);
+
+
+// Colors -----------------------------------
+
+@lightred:    hsl(345,  94%,  78%);  // nice hue for important non-keyword variable names like 'self', 'cls', etc.
+@red:         hsl(000,  68%,  68%);
+@darkred:     hsl(005,  48%,  51%);  // jarring hue for errors
+@deepred:     hsl(006,  38%,  36%);
+
+@lightbrown:  hsl(010,  44%,  83%);
+@brown:       hsl(012,  26%,  57%);
+@darkbrown:   hsl(015,  16%,  45%);
+@deepbrown:   hsl(019,  21%,  36%);
+
+@lightorange: hsl(023,  58%,  69%);  // Class name color in class def and various misc uses (such as the curly braces in f-strings, constants, the ellipsis, etc.)
+@orange:      hsl(026,  74%,  66%);
+@darkorange:  hsl(029,  65%,  40%);
+@deeporange:  hsl(032,  75%,  28%);
+
+@lightyellow: hsl(037,  59%,  73%);
+@yellow:      hsl(039,  63%,  62%);  // for 'class', 'def', and 'lambda' keywords
+@darkyellow:  hsl(039,  47%,  53%);
+@deepyellow:  hsl(045,  65%,  26%);
+
+@lightlime:   hsl(068,  42%,  72%);
+@lime:        hsl(073,  44%,  50%);
+@darklime:    hsl(076,  43%,  39%);
+@deeplime:    hsl(077,  58%,  26%);
+
+@lightgreen:  hsl(095,  38%,  63%);  // for strings
+@green:       hsl(100,  35%,  48%);
+@darkgreen:   hsl(114,  30%,  42%);  // for logical operators (and, or, not, in), comparison operators (==, !=, >, <, etc.) and bitwise operators (&, |, ~, etc.). Basically anything that resolves to True or False.
+@deepgreen:   hsl(125,  30%,  31%);
+
+@lightfern:   hsl(138,  45%,  69%);
+@fern:        hsl(148,  45%,  44%);
+@darkfern:    hsl(158,  45%,  37%);
+@deepfern:    hsl(168,  45%,  28%);
+
+@lightteal:   hsl(172,  43%,  69%);
+@teal:        hsl(175,  47%,  45%);  // for built-ins, magic methods, types etc.
+@darkteal:    hsl(195,  55%,  39%);
+@deepteal:    hsl(198,  65%,  31%);
+
+@lightblue:   hsl(207,  88%,  77%);  // for singletons (None, True, False), numeric literals (1, 1.5, 2e3, etc.), and, arithmetic operators (+, -, *, /, //, %, etc.)
+@blue:        hsl(207,  74%,  61%);
+@darkblue:    hsl(207,  62%,  45%);  // for functions and method names in defs, as well as in calls
+@deepblue:    hsl(212,  56%,  37%);
+
+@lightindigo: hsl(232,  60%,  81%);
+@indigo:      hsl(233,  50%,  69%);
+@darkindigo:  hsl(235,  40%,  59%);
+@deepindigo:  hsl(238,  35%,  45%);
+
+@lightpurple: hsl(269,  60%,  78%);  // for flow control (for, while, if, else, try, except, finally, with, raise), and imports
+@purple:      hsl(266,  53%,  67%);
+@darkpurple:  hsl(269,  27%,  55%);  // for function and method arguments (except those highlighted especially as lightred), and all assignment operators (=, +=, etc.)
+@deeppurple:  hsl(269,  27%,  44%);
+
+@lightpink:   hsl(309,  71%,  83%);  //
+@pink:        hsl(311,  50%,  64%);
+@darkpink:    hsl(313,  36%,  53%);  //
+@deeppink:    hsl(300,  28%,  40%);  //

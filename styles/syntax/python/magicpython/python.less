@@ -1,0 +1,728 @@
+/* Python source code syntax highlighting */
+
+// (When in python source code)
+.syntax--source.syntax--python {
+
+    // Comments ================================================================
+    .syntax--comment {
+
+        // Comments starting with a #
+        &.syntax--line.syntax--number-sign.syntax--python {}
+
+        // Type hints in comments
+        &.syntax--typehint {
+            color: @monochrome-mid;
+
+            // type:
+            &.syntax--directive.syntax--notation.syntax--python {}
+
+            // ignore
+            &.syntax--ignore.syntax--notation.syntax--python {
+                color: @monochrome-mid;
+            }
+
+            // [](),.=* ->
+            &.syntax--punctuation.syntax--notation.syntax--python {}
+
+            // bool bytes float int object str List Dict Iterable Sequence Set FrozenSet Callable Union Tuple Any None
+            &.syntax--type.syntax--notation.syntax--python {
+                color: @darkred;
+            }
+
+            // Other variable names
+            &.syntax--variable.syntax--notation.syntax--python {
+                color: @darkindigo;
+            }
+        }
+    }
+
+    // Constants ===============================================================
+    .syntax--constant {
+
+        // Characters ----------------------------------------------------------
+        &.syntax--character {
+
+            // Escaped characters in strings
+            &.syntax--escape.syntax--python {}
+
+            // Format placeholders % {}
+            &.syntax--format.syntax--placeholder.syntax--other.syntax--python {
+                color: @fern;
+            }
+        }
+
+        // None, True, False, Ellipsis, NotImplemented
+        &.syntax--language.syntax--python {}
+
+        // Numeric constants ---------------------------------------------------
+        &.syntax--numeric {
+
+            // Any numeric constant
+            &.syntax--python {}
+
+            // 0b101010
+            &.syntax--bin.syntax--python {}
+
+            // 42
+            &.syntax--dec.syntax--python {}
+
+            // 3.14159
+            &.syntax--float.syntax--python {}
+
+            // 0x2A
+            &.syntax--hex.syntax--python {}
+
+            // 0o52
+            &.syntax--oct.syntax--python {}
+        }
+
+        // Other constants -----------------------------------------------------
+        &.syntax--other {
+
+            // Capitalized variable
+            &.syntax--caps.syntax--python {}
+
+            // ...
+            &.syntax--ellipsis.syntax--python {
+                color: @monochrome-mid;
+                font-weight: bold;
+            }
+        }
+    }
+
+    // Named entities ==========================================================
+    .syntax--entity {
+
+        // Names in declarations -----------------------------------------------
+        &.syntax--name {
+
+            // Declaring a function (def) --------------------------------------
+            &.syntax--function{
+
+                // Function name
+                &.syntax--python {
+                    font-weight: bold;
+                }
+
+                // Decorator names
+                &.syntax--decorator.syntax--python {
+                    color: @teal;
+                }
+            }
+
+            // Class name
+            &.syntax--type.syntax--class.syntax--python {}
+        }
+
+        // Class name when inherited
+        &.syntax--other.syntax--inherited-class.syntax--python {}
+    }
+
+    // Invalid syntax ==========================================================
+    .syntax--invalid {
+
+        // Deprecated ----------------------------------------------------------
+        &.syntax--deprecated{
+
+            // `
+            &.syntax--backtick.syntax--python {}
+
+            // ur'' Ur''
+            &.syntax--prefix.syntax--python {}
+
+            // ; terminating line
+            &.syntax--semicolon.syntax--python {}
+        }
+
+        // Illegal -------------------------------------------------------------
+        &.syntax--illegal {
+
+            // -> on lambda functions or in bare Python expressions
+            &.syntax--annotation.syntax--python {}
+
+            // Illegal closing of braces }
+            &.syntax--brace.syntax--python {}
+
+            // Decimal integer starting with 0
+            &.syntax--dec.syntax--python {}
+
+            // Text after decorator call, or invalid component to decorator name
+            &.syntax--decorator.syntax--python {}
+
+            // Extra  text after line contination
+            &.syntax--line.syntax--continuation.syntax--python {}
+
+            // Entity name beginning with digit
+            &.syntax--name.syntax--python {}
+
+            // Unacceptable place for newline
+            &.syntax--newline.syntax--python {}
+
+            // && || -- ++ ? $ !
+            &.syntax--operator.syntax--python {}
+
+            // ru rU Ru RU fb fB fu fU Fb FB Fu FU bf bF Bf BF uf uF Uf UF ''
+            &.syntax--prefix.syntax--python {}
+        }
+    }
+
+    // Language keywords =======================================================
+    .syntax--keyword {
+        color: @orange;
+
+        // NOTE XXX HACK FIXME BUG TODO
+        &.syntax--codetag.syntax--notation.syntax--python {
+            color: @pink;
+            font-weight: bold;
+        }
+
+        // Control flow --------------------------------------------------------
+        &.syntax--control {
+
+            // as async await continue del assert break finally for from elif else if except pass raise return try while with yield
+            // >>> ... in docstrings
+            // also other reserved keywords when used as entity names
+            &.syntax--flow.syntax--python {}
+
+            // import from
+            &.syntax--import.syntax--python {}
+        }
+
+        // True False None as entity names
+        &.syntax--illegal.syntax--name.syntax--python {}
+
+        // Operators -----------------------------------------------------------
+        &.syntax--operator {
+
+            // All
+            &.syntax--python {
+                color: @red;
+            }
+
+            // + - * ** / // % @
+            &.syntax--arithmetic.syntax--python {
+                color: @monochrome-mid;
+            }
+
+            // = += -= *= **= /= //= %= @= <<= >>= &= |= ^= ~=
+            &.syntax--assignment.syntax--python {
+                // Should be left empty
+            }
+
+            // << >> & | ^ ~
+            &.syntax--bitwise.syntax--python {
+                color: @orange;
+                font-weight: bold;
+            }
+
+            // == != < > <= >=
+            &.syntax--comparison.syntax--python {
+                color: @orange;
+                font-weight: bold;
+            }
+
+            // and or not in is
+            &.syntax--logical.syntax--python {
+                color: @orange;
+            }
+
+            // Asterisks in *args, **kwargs
+            &.syntax--unpacking {
+                font-weight: bold;
+
+                // * ** in call
+                &.syntax--arguments.syntax--python {
+                    color: @monochrome-mid;
+                }
+
+                // * ** in definition
+                &.syntax--parameter.syntax--python {
+                    color: @lightyellow;
+                }
+            }
+        }
+    }
+
+    // Context-aware syntax ====================================================
+    .syntax--meta {
+
+        // Types
+        .syntax--support.syntax--type.syntax--python {
+            color: @darkred;
+        }
+
+        // Class definitions ---------------------------------------------------
+        &.syntax--class {
+
+            // Class declaration (up to :)
+            &.syntax--python {}
+
+            // Inside ()
+            &.syntax--inheritance.syntax--python {
+
+                // Types
+                .syntax--support.syntax--type.syntax--python {
+                    color: @lightindigo;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        // String formatting
+        &.syntax--format {
+
+            // {} and nested variations
+            &.syntax--brace.syntax--python {}
+
+            // % format strings
+            &.syntax--percent.syntax--python {}
+        }
+
+        // Interpolated string
+        &.syntax--fstring.syntax--python {}
+
+        // Function definitions ------------------------------------------------
+        &.syntax--function {
+
+            // Function declaration (up to :)
+            &.syntax--python {}
+
+            // @decorators
+            &.syntax--decorator.syntax--python {
+
+                // Types as decorators (e.g. property)
+                .syntax--support.syntax--type.syntax--python {
+                    color: @teal;
+                }
+            }
+
+            // Inside ()
+            &.syntax--parameters.syntax--python {}
+        }
+
+        // Function, if named, and (...), when calling -------------------------
+        &.syntax--function-call {
+
+            // Whole expression
+            &.syntax--python {}
+
+            // Arguments
+            &.syntax--arguments {
+
+                // Types
+                .syntax--support.syntax--type.syntax--python {
+                    color: @darkred !important;
+                }
+            }
+
+            // Function name
+            &.syntax--generic.syntax--python {}
+        }
+
+        // Object, if named, and [...], when accessing -------------------------
+        &.syntax--item-access.syntax--python {}
+
+        // Lambda function definition (up to :)
+        &.syntax--lambda-function.syntax--python {}
+
+        // Type hint in comment
+        &.syntax--typehint.syntax--comment.syntax--python {
+            color: @darkred;
+        }
+    }
+
+    // Punctuation =============================================================
+    .syntax--punctuation {
+
+        // Distinguishing one context from another -----------------------------
+        &.syntax--definition {
+
+            // Enclosing arguments in function, method or class use
+            &.syntax--arguments {
+                color: @monochrome-mid;
+
+                // Item access or argument brackets [ (
+                &.syntax--begin.syntax--python {}
+
+                // Item access or argument brackets ] )
+                &.syntax--end.syntax--python {}
+            }
+
+            // #
+            &.syntax--comment.syntax--python {}
+
+            // @
+            &.syntax--decorator.syntax--python {}
+
+            // Dictionaries
+            &.syntax--dict {
+                color: @darkpurple;
+
+                // {
+                &.syntax--begin.syntax--python {}
+
+                // }
+                &.syntax--end.syntax--python {}
+            }
+
+            // Class inheritance
+            &.syntax--inheritance {
+
+                // (
+                &.syntax--begin.syntax--python {}
+
+                // )
+                &.syntax--end.syntax--python {}
+            }
+
+            // Lists
+            &.syntax--list {
+                color: @darkbrown;
+
+                // [
+                &.syntax--begin.syntax--python {}
+
+                // ]
+                &.syntax--end.syntax--python {}
+            }
+
+            // Function definition
+            &.syntax--parameters {
+
+                // (
+                &.syntax--begin.syntax--python {}
+
+                // )
+                &.syntax--end.syntax--python {}
+            }
+
+            // Strings
+            &.syntax--string {
+                color: inherit;
+
+                // ' " ''' """
+                &.syntax--begin.syntax--python {}
+
+                // ' " ''' """
+                &.syntax--end.syntax--python {}
+            }
+        }
+
+        // Parentheses (including tuples and maths)
+        &.syntax--parenthesis {
+            color: @monochrome-mid;
+
+            // (
+            &.syntax--begin.syntax--python {}
+
+            // )
+            &.syntax--end.syntax--python {}
+        }
+
+        // :
+        &.syntax--section {
+
+            // : in class declaration
+            &.syntax--class.syntax--begin.syntax--python {}
+
+            // : in function declaration
+            &.syntax--function {
+                color: @lightyellow;
+
+                // : after def
+                &.syntax--begin.syntax--python {}
+
+                // : after lambda
+                &.syntax--lambda.syntax--begin.syntax--python {}
+            }
+        }
+
+        // Separating terms within the same context
+        &.syntax--separator {
+
+            // Type hinting
+            &.syntax--annotation {
+
+                // :
+                &.syntax--python {
+                    color: @monochrome-mid;
+                }
+
+                // ->
+                &.syntax--result.syntax--python {
+                    color: @darkred;
+                    font-weight: bold;
+                }
+            }
+
+            // , between arguments in function or method call
+            &.syntax--arguments.syntax--python {}
+
+            // : for if elif else try except finally with
+            &.syntax--colon.syntax--python {
+                color: @orange;
+            }
+
+            // \ at end of line
+            &.syntax--continuation.syntax--line.syntax--python {
+                color: @pink;
+                font-weight: bold;
+            }
+
+            // : between key and value
+            &.syntax--dict.syntax--python {
+                color: @monochrome-mid;
+            }
+
+            // , in iterable
+            &.syntax--element.syntax--python {
+                color: @monochrome-mid;
+            }
+
+            // , between inherited classes
+            &.syntax--inheritance.syntax--python {}
+
+            // , between parameters in function or method definition
+            &.syntax--parameters.syntax--python {
+                color: @lightyellow;
+            }
+
+            // .
+            &.syntax--period.syntax--python {}
+
+            // : in []
+            &.syntax--slice.syntax--python {
+                color: @monochrome-mid;
+            }
+        }
+    }
+
+    // Keywords conveying memory information -----------------------------------
+    .syntax--storage {
+
+        // Conveying scope of variable
+        &.syntax--modifier.syntax--declaration.syntax--python {}
+
+        // Conveying type of variables
+        &.syntax--type {
+
+            // class
+            &.syntax--class.syntax--python {}
+
+            // Format strings
+            &.syntax--format.syntax--python {
+                color: @fern;
+            }
+
+            // function
+            &.syntax--function {
+
+                // [async] def
+                &.syntax--python {}
+
+                // async
+                &.syntax--async.syntax--python {
+                    color: @darkyellow;
+                }
+
+                // lambda
+                &.syntax--lambda.syntax--python {}
+            }
+
+            // 42j 42J
+            &.syntax--imaginary.syntax--number.syntax--python {
+                color: @lightblue;
+                font-style: italic;
+            }
+
+            // 0b 0o 0x 0B 0O 0X l L
+            &.syntax--number.syntax--python {
+                color: @lightteal;
+            }
+
+            // b, r, f, u, etc.
+            &.syntax--string.syntax--python {
+                color: @lime;
+            }
+        }
+    }
+
+    // Strings =================================================================
+    .syntax--string{
+
+        // f F
+        &.syntax--interpolated.syntax--python {}
+
+        // Quoted strings
+        &.syntax--quoted {
+
+            // ''' """
+            &.syntax--multi.syntax--python {}
+
+            // ' "
+            &.syntax--single.syntax--python {}
+
+            // b B
+            &.syntax--binary {
+
+                // b''' B''' b""" B"""
+                &.syntax--multi.syntax--python {}
+
+                // b' B' b" B"
+                &.syntax--single.syntax--python {}
+            }
+
+            // R
+            &.syntax--raw {
+
+                // R''' R"""
+                &.syntax--multi.syntax--python {}
+
+                // R' R"
+                &.syntax--single.syntax--python {}
+
+                // Rb RB bR BR
+                &.syntax--binary {
+
+                    // Rb''' RB''' Rb""" RB""" bR''' BR''' bR""" BR"""
+                    &.syntax--multi.syntax--python {}
+
+                    // Rb' RB' Rb" RB" bR' BR' bR" BR"
+                    &.syntax--single.syntax--python {}
+                }
+            }
+
+            // String that isn't passed anywhere
+            &.syntax--docstring {
+                color: @lightyellow;
+
+                // ''' """
+                &.syntax--multi.syntax--python {}
+
+                // ' "
+                &.syntax--single.syntax--python {}
+
+                // r R
+                &.syntax--raw {
+
+                    // r''' R''' r""" R"""
+                    &.syntax--multi.syntax--python {}
+
+                    // r' R' r" R"
+                    &.syntax--single.syntax--python {}
+                }
+            }
+        }
+
+
+        // r-strings
+        &.syntax--regexp.syntax--quoted {
+
+            // r''' r"""
+            &.syntax--multi.syntax--python {}
+
+            // r' r"
+            &.syntax--single.syntax--python {}
+        }
+    }
+
+    // Special names ===========================================================
+    .syntax--support {
+
+        // Functions
+        &.syntax--function {
+
+            // Builtin functions (__import__ abs all any ascii bin breakpoint callable chr compile copyright credits delattr dir divmod enumerate eval exec exit filter format getattr globals hasattr hash help hex id input isinstance issubclass iter len license locals map max memoryview min next oct open ord pow print quit range reload repr reversed round setattr sorted sum vars zip)
+            &.syntax--builtin.syntax--python {}
+
+            // __magic_methods__ (abs add aenter aexit aiter and anext await bool call ceil cmp coerce complex contains copy deepcopy del delattr delete delitem delslice dir div divmod enter eq exit float floor floordiv format ge get getattr getattribute getinitargs getitem getnewargs getslice getstate gt hash hex iadd iand idiv ifloordiv ilshift imod imul index init instancecheck int invert ior ipow irshift isub iter itruediv ixor le len long lshift lt missing mod mul ne neg new next nonzero oct or pos pow radd rand rdiv rdivmod reduce reduce_ex repr reversed rfloordiv rlshift rmod rmul ror round rpow rrshift rshift rsub rtruediv rxor set setattr setitem setslice setstate sizeof str sub subclasscheck truediv trunc unicode xor matmul rmatmul imatmul init_subclass set_name fspath bytes prepare)
+            &.syntax--magic.syntax--python {
+                color: @darkblue;
+                font-weight: bold;
+            }
+        }
+
+        // Types
+        &.syntax--type {
+
+            // Builtin type names (basestring bool buffer bytearray bytes complex dict float frozenset int list long memoryview object range set slice str tuple unicode xrange super)
+            &.syntax--python {
+                color: inherit;
+            }
+
+            // Builtin exceptions ([Arithmetic Assertion Attribute Buffer BlockingIO BrokenPipe ChildProcess Connection[Aborted Refused Reset] EOF Environment FileExists FileNotFound FloatingPoint IO Import Indentation Index Interrupted IsADirectory NotADirectory Permission ProcessLookup Timeout Key Lookup Memory Name NotImplemented OS Overflow Reference Runtime Recursion Syntax System Tab Type UnboundLocal Unicode[Encode Decode Translate] Value Windows ZeroDivision ModuleNotFound]Error [Pending]Deprecation Runtime Syntax User Future Import Unicode Bytes Resource]Warning SystemExit Stop[Async]Iteration KeyboardInterrupt GeneratorExit [Base]Exception)
+            &.syntax--exception.syntax--python {
+                font-weight: bold;
+            }
+
+            // metaclass
+            &.syntax--metaclass.syntax--python {
+                color: @lightyellow !important;
+                font-weight: bold;
+            }
+        }
+
+        // __magic_variables__ (all bases builtins class class_getitem code debug defaults dict doc file func kwdefaults members metaclass methods module mro mro_entries name qualname post_init self signature slots subclasses version weakref wrapped annotations classcell spec path package future traceback)
+        &.syntax--variable.syntax--magic.syntax--python {}
+    }
+
+    // Variables ===============================================================
+    .syntax--variable {
+        color: @lightorange;
+
+        // Using self and cls
+        &.syntax--language.syntax--special {
+
+            // cls
+            &.syntax--cls.syntax--python {
+                color: @purple;
+            }
+
+            // self
+            &.syntax--self.syntax--python {
+                color: @red;
+            }
+        }
+
+        // file reduce intern raw_input unicode cmp basestring execfile long xrange
+        &.syntax--legacy.syntax--builtin.syntax--python {
+            background-color: @lightyellow;
+            color: @deepbrown;
+        }
+
+        // Args and kwargs in definition
+        &.syntax--parameter {
+
+            // Class inheritance kwargs
+            &.syntax--class.syntax--python {
+                color: @lightindigo;
+                font-weight: bold;
+            }
+
+            // Function args and kwargs
+            &.syntax--function.syntax--language {
+
+                // Ordinary function arguments in definition
+                &.syntax--python {
+                    font-weight: bold;
+                }
+
+                // Using self and cls in method definitions
+                &.syntax--special {
+                    font-weight: bold;
+
+                    // cls
+                    &.syntax--cls.syntax--python {}
+
+                    // self
+                    &.syntax--self.syntax--python {}
+                }
+            }
+
+            // Using kwargs in function call
+            &.syntax--function-call.syntax--python {
+                color: @lightorange;
+            }
+        }
+    }
+}
