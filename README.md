@@ -2,7 +2,7 @@
 
 Brunel is a dark theme for Python. It uses MagicPython classes (not the default language-python ones; you will need to install the MagicPython grammar to get the most out of this theme).
 
-<img src="sample.png" alt="Screenshot of sample code using Brunel" style="display:block; margin-left: auto; margin-right: auto; width:70%;" width="70%" />
+<img src="https://github.com/willflet/brunel-syntax/raw/master/sample.png" alt="Screenshot of sample code using Brunel" style="display:block; margin-left: auto; margin-right: auto; width:70%;" width="70%" />
 
 The colour scheme is loosely based on One Dark and derivative themes (e.g. *dark snek*), and has been modified to exploit the full extent of MagicPython highlighting without sacrificing visual simplicity.
 
