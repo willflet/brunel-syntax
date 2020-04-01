@@ -1,11 +1,14 @@
 {
   "name": "brunel-syntax",
   "theme": "syntax",
-  "version": "0.1.0",
-  "description": "A dark and detailed theme for MagicPython. Related to One Dark.",
+  "version": "0.0.0",
+  "description": "A dark and detailed theme for MagicPython.",
   "keywords": [
+    "dark",
     "syntax",
-    "theme"
+    "theme",
+    "python",
+    "magicpython"
   ],
   "repository": "https://github.com/willflet/brunel-syntax",
   "license": "MIT",

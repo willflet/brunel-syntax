@@ -263,7 +263,6 @@
                 // Types
                 .syntax--support.syntax--type.syntax--python {
                     color: @lightindigo;
-                    font-weight: bold;
                 }
             }
         }
@@ -290,7 +289,7 @@
             // @decorators
             &.syntax--decorator.syntax--python {
 
-                // Types as decorators (e.g. property)
+                // Types as decorators (e.g. @property)
                 .syntax--support.syntax--type.syntax--python {
                     color: @teal;
                 }
@@ -316,7 +315,9 @@
             }
 
             // Function name
-            &.syntax--generic.syntax--python {}
+            &.syntax--generic.syntax--python {
+                color: @blue;
+            }
         }
 
         // Object, if named, and [...], when accessing -------------------------
