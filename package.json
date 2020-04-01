@@ -10,7 +10,10 @@
     "python",
     "magicpython"
   ],
-  "repository": "https://github.com/willflet/brunel-syntax",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willflet/brunel-syntax"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
