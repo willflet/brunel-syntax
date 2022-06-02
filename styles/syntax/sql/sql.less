@@ -1,0 +1,310 @@
+/* SQL source code syntax highlighting */
+
+// (When in SQL source code)
+.syntax--source.syntax--sql {
+
+    // Language keywords
+    .syntax--keyword {
+
+        &.syntax--operator {
+
+            &.syntax--star.syntax--sql {}
+
+            &.syntax--comparison.syntax--sql {
+                color: @orange;
+                font-weight: bold;
+            }
+
+            &.syntax--math.syntax--sql {}
+
+            // ||
+            &.syntax--concatenator.syntax--sql {}
+
+        }
+
+        &.syntax--other {
+
+            &.syntax--sql {}
+
+            &.syntax--authorization.syntax--sql {
+                color: @lightred;
+                font-weight: bold;
+            }
+
+            // not in
+            &.syntax--data-integrity.syntax--sql {
+                color: @purple;
+                font-weight: bold;
+            }
+
+            // on, is null, auto-increment etc.
+            &.syntax--DDL.syntax--create.syntax--II.syntax--sql {
+                color: @yellow;
+                font-weight: bold;
+            }
+
+            &.syntax--not.syntax--sql {
+                color: @orange;
+                font-weight: bold;
+            }
+
+            &.syntax--object-comments.syntax--sql {
+                color: @teal;
+            }
+
+            &.syntax--alias.syntax--sql {
+                color: @monochrome-mid;
+                font-weight: bold;
+            }
+
+            &.syntax--order.syntax--sql {
+                color: @teal;
+            }
+
+            &.syntax--case.syntax--sql {
+                color: @orange;
+            }
+
+            &.syntax--conditional.syntax--sql {
+                color: @lightbrown;
+            }
+
+            &.syntax--DML{
+                color: @lightyellow;
+                font-weight: bold;
+
+                &.syntax--sql {}
+
+                &.syntax--II.syntax--sql {
+                    color: @brown;
+                    font-weight: bold;
+                }
+
+            }
+
+            &.syntax--LUW.syntax--sql {
+                color: @lightpink;
+                font-weight: bold;
+            }
+
+            &.syntax--create.syntax--sql {
+                color: @indigo;
+                font-weight: bold;
+            }
+
+            &.syntax--drop.syntax--sql {
+                color: @indigo;
+                font-weight: bold;
+            }
+
+            &.syntax--table.syntax--sql {
+                color: @indigo;
+                font-weight: bold;
+            }
+
+            &.syntax--cascade.syntax--sql {
+                color: @indigo;
+                font-weight: bold;
+            }
+
+        }
+
+    }
+
+    .syntax--constant {
+
+        &.syntax--numeric.syntax--sql {}
+
+        &.syntax--character.syntax--escape {
+
+            &.syntax--slash.syntax--sql {}
+
+            &.syntax--sql {}
+
+        }
+
+        &.syntax--other {
+
+            &.syntax--database-name.syntax--sql {
+                color: @blue;
+            }
+
+            &.syntax--table-name.syntax--sql {
+                color: @monochrome-high;
+            }
+
+        }
+
+    }
+
+    .syntax--comment {
+
+        &.syntax--line.syntax--double-dash.syntax--sql {}
+
+        &.syntax--block.syntax--sql {}
+
+    }
+
+    .syntax--entity {
+
+        &.syntax--name.syntax--function.syntax--sql {}
+
+    }
+
+    .syntax--storage {
+
+        &.syntax--type.syntax--sql {
+            color: @darkred;
+        }
+
+        &.syntax--modifier.syntax--sql {
+            color: @darkbrown;
+            font-weight: bold;
+        }
+
+    }
+
+    .syntax--support {
+
+        &.syntax--function {
+
+            &.syntax--scalar.syntax--sql {}
+
+            &.syntax--math.syntax--sql {}
+
+            &.syntax--aggregate.syntax--sql {
+                color: @teal;
+                font-weight: bold;
+            }
+
+            &.syntax--string.syntax--sql {}
+
+            &.syntax--window.syntax--sql {
+                color: @teal;
+            }
+
+        }
+
+    }
+
+    .syntax--punctuation {
+
+        &.syntax--definition {
+
+            &.syntax--string {}
+
+            &.syntax--section {
+
+                &.syntax--bracket.syntax--round {
+                    color: @monochrome-mid;
+                }
+
+            }
+
+            &.syntax--comment.syntax--sql {}
+
+            &.syntax--parameters {
+
+                &.syntax--bracket.syntax--round {
+                    color: @monochrome-mid;
+                }
+
+            }
+
+        }
+
+        &.syntax--separator {
+
+            &.syntax--period.syntax--sql {
+                color: @darkblue;
+            }
+
+            &.syntax--comma.syntax--sql {
+                color: @monochrome-mid;
+            }
+
+            &.syntax--parameters {
+
+                &.syntax--comma.syntax--sql {}
+
+            }
+
+        }
+
+        &.syntax--terminator {
+
+            &.syntax--statement.syntax--semicolon.syntax--sql {
+                color: @lightpink;
+                font-weight: bold;
+            }
+
+        }
+
+        &.syntax--unmatched {
+
+            &.syntax--bracket.syntax--round.syntax--end.syntax--sql {
+                color: white;
+                background-color: @darkred;
+            }
+
+        }
+
+    }
+
+    .syntax--string {
+
+        &.syntax--regexp {
+
+            &.syntax--modr.syntax--sql {}
+
+            &.syntax--sql {}
+
+        }
+
+        &.syntax--interpolated.syntax--sql {}
+
+        &.syntax--quoted {
+
+            &.syntax--single.syntax--sql {}
+
+            &.syntax--double.syntax--sql {}
+
+            &.syntax--other.syntax--backtick.syntax--sql {
+                color: @monochrome-high;
+            }
+
+        }
+
+        &.syntax--other {
+
+            &.syntax--quoted.syntax--brackets.syntax--sql {}
+
+        }
+
+    }
+
+    .syntax--meta {
+
+        &.syntax--create.syntax--sql {
+
+        }
+
+        &.syntax--drop.syntax--sql {
+
+        }
+
+        &.syntax--add.syntax--sql {
+
+        }
+
+        &.syntax--truncate.syntax--sql {
+
+        }
+
+        &.syntax--alter.syntax--sql {
+
+        }
+
+    }
+
+}

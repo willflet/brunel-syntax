@@ -22,7 +22,9 @@
             }
 
             // [](),.=* ->
-            &.syntax--punctuation.syntax--notation.syntax--python {}
+            &.syntax--punctuation.syntax--notation.syntax--python {
+                color: @blue;
+            }
 
             // bool bytes float int object str List Dict Iterable Sequence Set FrozenSet Callable Union Tuple Any None
             &.syntax--type.syntax--notation.syntax--python {
@@ -443,17 +445,13 @@
 
             // Type hinting
             &.syntax--annotation {
+                color: @blue;
 
                 // :
-                &.syntax--python {
-                    color: @monochrome-mid;
-                }
+                &.syntax--python {}
 
                 // ->
-                &.syntax--result.syntax--python {
-                    color: @darkred;
-                    font-weight: bold;
-                }
+                &.syntax--result.syntax--python {}
             }
 
             // , between arguments in function or method call
